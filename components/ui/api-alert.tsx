@@ -5,6 +5,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Copy, Server } from "lucide-react";
 import { Badge, BadgeProps } from "@/components/ui/badge";
 import { Button } from "./button";
+import { toast } from "react-hot-toast";
 
 interface ApiAlertProps {
   title: string;
@@ -29,6 +30,7 @@ export const ApiAlert: React.FC<ApiAlertProps> = ({
 }) => {
   const onCopy = () => {
     navigator.clipboard.writeText(description);
+    toast.success("Copied to clipboard");
   };
 
   return (
