@@ -8,11 +8,11 @@ import { CategoryColumn, columns } from "./columns";
 import { DataTable } from "@/components/ui/data-table";
 import { ApiList } from "@/components/ui/api-list";
 
-interface CategoryClient {
+interface CategoryClientProps {
     data: CategoryColumn[];
 }
 
-export const CategoryClient: React.FC<CategoryClient> = ({data}) => {
+export const CategoryClient: React.FC<CategoryClientProps> = ({data}) => {
     const router = useRouter();
     const params = useParams();
 
@@ -26,7 +26,7 @@ export const CategoryClient: React.FC<CategoryClient> = ({data}) => {
                 </Button>
             </div>
             <Separator />
-            <DataTable searchKey="label" columns={columns} data={data}/>
+            <DataTable searchKey="name" columns={columns} data={data}/>
             <Heading title="API" description="API calls for Categories" />
             <Separator />
             <ApiList entityName="categories" entityIdName="categoryId" />
